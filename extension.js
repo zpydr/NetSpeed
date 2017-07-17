@@ -378,8 +378,6 @@ NetSpeed.prototype = {
 		let flines = GLib.file_get_contents('/proc/net/dev');  // Read the file
 		let nlines = ("" + flines[1]).split("\n"); // Break to lines
 
-		let up=0; // set initial
-		let down=0;
 		this._oldvalues = this._values;
 		this._values = new Array();
 		this._speeds = new Array();
@@ -402,9 +400,9 @@ NetSpeed.prototype = {
 			this._devices.push (params[0].replace(":",""));
 		}
 
-		var total = 0;
-		var up = 0;
-		var down = 0;
+		let total = 0;
+		let up = 0;
+		let down = 0;
 		let total_speed = []; 
 		let up_speed = [];
 		let down_speed = [];
